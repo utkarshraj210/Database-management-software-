@@ -1,5 +1,5 @@
 import sqlite3
-import streamlit as st
+import streamlit as st 
 
 class DatabaseManager:
     def __init__(self, db_name):
