@@ -1,5 +1,5 @@
 import sqlite3
-import streamlit as st 
+import streamlit as st
 
 class DatabaseManager:
     def __init__(self, db_name):
@@ -60,6 +60,7 @@ def main():
         if st.button("Add"):
             db.add_contact(name, mobile_number, email)
             st.success("Contact added successfully!")
+            st.write(db.view_contacts())  # Display contacts to verify addition
 
     elif choice == "View Contacts":
         st.subheader("View Contacts")
@@ -76,6 +77,7 @@ def main():
         if st.button("Update"):
             db.update_contact(contact_id, name, mobile_number, email)
             st.success("Contact updated successfully!")
+            st.write(db.view_contacts())  # Display contacts to verify update
 
     elif choice == "Delete Contact":
         st.subheader("Delete Contact")
@@ -83,6 +85,7 @@ def main():
         if st.button("Delete"):
             db.delete_contact(contact_id)
             st.success("Contact deleted successfully!")
+            st.write(db.view_contacts())  # Display contacts to verify deletion
 
 if __name__ == "__main__":
     main()
